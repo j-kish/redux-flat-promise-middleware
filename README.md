@@ -6,12 +6,13 @@ npm install --save github:j-kish/redux-flat-promise-middleware
 
 ### Example
 
+#### createStore.js
 ```js
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import reduxFlatPromiseMiddleware from 'redux-flat-promise-middleware';
 import firebase from 'react-native-firebase';
-import reducer from './{MY_REDUCER}';
+import reducer from './redux/modules/user';
 
 const extraArg = {
   firebase,
@@ -27,6 +28,8 @@ const store = createStore(
   ),
 );
 ```
+
+#### redux/modules/user.js
 ```js
 const FETCH_USER_REQUEST = '{MyApp}/FETCH_USER_REQUEST';
 const FETCH_USER_SUCCESS = '{MyApp}/FETCH_USER_SUCCESS';
@@ -78,6 +81,15 @@ export default function reducer(state = initialState, action = {}) {
 
 Chain
 ```js
+export function fetchProfile() {
+  return function (dispatch, getState, extraArg) {
+    return dispatch({
+      types: [FETCH_PROFILE_REQUEST, FETCH_PROFILE_SUCCESS, FETCH_PROFILE_FAILURE],
+      promise: () => extraArg.firebase.functions().httpsCallable('getProfile')(),
+    });
+  };
+}
+
 export function fetchUserAndProfile() {
   return function (dispatch) {
     return Promise.resolve()
