@@ -1,0 +1,42 @@
+{
+  "name": "redux-flat-promise-middleware",
+  "version": "0.1.0",
+  "description": "Flat promise middleware for Redux.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-kish/redux-flat-promise-middleware.git"
+  },
+  "homepage": "https://github.com/j-kish/redux-flat-promise-middleware",
+  "keywords": [
+    "redux",
+    "promise",
+    "middleware",
+    "redux-middleware"
+  ],
+  "author": "j-kish",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "23.4.2",
+    "babel-preset-react-native": "5.0.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "23.4.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "peerDependencies": {
+    "redux": "^4.0.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
