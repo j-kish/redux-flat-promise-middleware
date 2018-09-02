@@ -1,5 +1,5 @@
 export default function reduxFlatPromiseMiddleware(initialExtraArg = null) {
-  return function (dispatch, getState, extraArg = initialExtraArg) {
+  return function ({ dispatch, getState, extraArg = initialExtraArg }) {
     return next => (action) => {
       if (typeof action === 'function') {
         return next(action);
